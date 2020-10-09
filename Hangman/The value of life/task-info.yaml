@@ -62,6 +62,11 @@ files:
             full_blocks = [try_ for try_ in tries if len(try_.splitlines()) > 1]
             blocks = [block.splitlines()[0].strip() for block in full_blocks]
 
+            if not full_blocks:
+                return CheckResult.wrong(
+                    "Seems like you didn't print the game or did not separate the lines of the output properly.\n"
+                    "Please, make sure that the format of your program's output corresponds to the one described in the task."
+                )
             for full_block, block in zip(full_blocks, blocks):
                 if ' ' in block:
                     return CheckResult.wrong(
@@ -71,12 +76,12 @@ files:
                     )
 
             survived = 'You survived!'
-            hanged = 'You are hanged!'
+            hanged = 'You lost!'
 
             is_survived = survived in full_blocks[-1]
             is_hanged = hanged in full_blocks[-1]
 
-            no_such_letter = 'No such letter in the word'
+            no_such_letter = 'That letter doesn\'t appear in the word'
             no_improvements = 'No improvements'
 
             if is_hanged:
@@ -231,6 +236,27 @@ files:
     if __name__ == '__main__':
         CoffeeMachineTest('hangman.hangman').run_tests()
   learner_created: false
+- name: hangman/hangman.py
+  visible: true
+  text: |
+    import random
+
+    print("H A N G M A N")  # Write your code here
+    print("The game will be available soon.")
+
+    word = input()
+
+    random.seed()
+    guess_words = ['python', 'java', 'kotlin', 'javascript']
+    picker = random.choice(guess_words)
+
+
+    if word == picker:
+        print('You survived!')
+
+    else:
+        print('You are hanged!')
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/69/stages/377/implement
 status: Unchecked
 record: -1

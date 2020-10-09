@@ -1,20 +1,35 @@
 import random
 
-print("H A N G M A N")  # Write your code here
+word_list = ['python', 'java', 'kotlin', 'javascript']
 
-random.seed()
-guess_words = ['python', 'java', 'kotlin', 'javascript']
-picker = random.choice(guess_words)
-guess_p = picker.replace('hon', '--')
-guess_j = guess_p.rstrip('a') + '-'
-guess_k = guess_j.replace('lin', '--')
-guess_ja = guess_k.replace('ascript', '------')
-print(f'Guess the word {guess_ja}:')
+answer = random.choice(word_list)
 
-word = input()
+correct_letters = set()
 
-if word == picker:
-    print('You survived!')
 
-else:
-    print('You are hanged!')
+def show_word():
+    word = ''
+    for letter in answer:
+        if letter in correct_letters:
+            word += letter
+        else:
+            word += '-'
+    print(word)
+
+
+print('H A N G M A N')
+print()
+
+remainder_guess = 8
+while remainder_guess > 0:
+    show_word()
+    input_letter = input(f'Input a letter: ')
+    if input_letter in answer:
+        correct_letters.update(input_letter)
+    else:
+        print('No such letter in the word')
+    print()
+    remainder_guess -= 1
+
+print('Thanks for playing!')
+print("We'll see how well you did in the next *stage")

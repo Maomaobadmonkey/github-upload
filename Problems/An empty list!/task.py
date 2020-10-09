@@ -1,2 +1,2 @@
-empty_list = []
-print(empty_list)
+em_list = []
+print(em_list)

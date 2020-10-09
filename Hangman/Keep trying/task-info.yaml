@@ -81,6 +81,11 @@ files:
             full_blocks = [try_ for try_ in tries if len(try_.splitlines()) > 1]
             blocks = [block.splitlines()[0].strip() for block in full_blocks]
 
+            if not blocks:
+                return CheckResult.wrong(
+                    "Seems like you didn't print the game or did not separate the lines of the output properly.\n"
+                    "Please, make sure that the format of your program's output corresponds to the one described in the task."
+                )
             for full_block, block in zip(full_blocks, blocks):
                 if ' ' in block:
                     return CheckResult.wrong(
@@ -171,6 +176,31 @@ files:
     if __name__ == '__main__':
         CoffeeMachineTest('hangman.hangman').run_tests()
   learner_created: false
+- name: hangman/hangman.py
+  visible: true
+  text: |
+    import random
+
+    print("H A N G M A N")  # Write your code here
+    print("The game will be available soon.")
+
+    word = input()
+
+    random.seed()
+    guess_words = ['python', 'java', 'kotlin', 'javascript']
+    picker = random.choice(guess_words)
+
+
+    if word == picker:
+        print('You survived!')
+
+    else:
+        print('You are hanged!')
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/69/stages/376/implement
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: Congratulations! Continue on <a href="https://hyperskill.org/projects/69/stages/376/implement">JetBrains
+    Academy</a>
+  time: Tue, 01 Sep 2020 07:39:34 UTC
+record: 2

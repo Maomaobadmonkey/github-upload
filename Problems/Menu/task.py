@@ -1,6 +1,7 @@
 order = input()
+
 if order == "pizza":
-    print('Margarita, Four Seasons, Neapoletana, Vegetarian, Spicy')
+    print("Margherita, Four Seasons, Neapolitan, Vegetarian, Spicy")
 elif order == "salad":
     print('Caesar salad, Green salad, Tuna salad, Fruit salad')
 elif order == "soup":

@@ -3,10 +3,13 @@ files:
 - name: task.py
   visible: true
   learner_created: false
+- name: main.py
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/7998
 status: Solved
 feedback:
   message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/7998">JetBrains
     Academy</a></html>
-  time: Sun, 12 Jul 2020 08:00:38 UTC
+  time: Fri, 09 Oct 2020 08:16:32 UTC
 record: -1
